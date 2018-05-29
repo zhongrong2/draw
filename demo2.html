@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.active{
+			background-color: red!important;
+		}
+		.box{
+			width: 1000px;
+			height: 612px;
+			margin: 0 auto;
+		}
+		.item{
+			width: 100px;
+			height: 100px;
+			float: left;
+			border: 1px solid #ccc;
+			font-size: 24px;
+			text-align: center;
+			line-height: 100px;
+		}
+		input{
+			width: 100px;
+			height: 60px;
+			display: block;
+			margin: 0 auto;
+			/*float: left;*/
+			background-color: #cfcfcf;
+			font-size: 24px;
+			text-align: center;
+			margin-top: 10px;
+			cursor: pointer;
+			border: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+	</div>
+	<input type="botton" value="开始">
+</body>
+<script>
+		let items=document.querySelectorAll(".item");
+		let btn=document.querySelector("input[type=botton]");
+		console.log(items,btn);
+
+		items.forEach(function(ele,index){
+			setInterval(function(){
+				var r=Math.floor(Math.random()*155+100);
+				var b=Math.floor(Math.random()*155+100);
+				var g=Math.floor(Math.random()*155+100);
+
+				ele.style.background=`rgb(${r},${b},${g})`;
+				
+			},200)
+			ele.innerHTML=index+1;
+		});
+
+		let obj=items[0];
+		let i=0;
+		let t;
+		btn.onclick=function(){
+			i++;
+			if(i%2===1){
+				t=setInterval(function(){
+					let num=Math.floor(Math.random()*55);
+					obj.classList.remove("active");
+					items[num].classList.add("active");
+					obj=items[num];
+				}, 200)
+			}else{
+				clearInterval(t);
+			}
+		}
+</script>
+</html>
